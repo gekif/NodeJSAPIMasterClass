@@ -31,6 +31,8 @@ exports.getBootcamp = async (req, res, next) => {
             return res.status(400).json({
                 success: false
             });
+
+            // next(err);
         }
 
         res.status(200).json({
@@ -39,9 +41,11 @@ exports.getBootcamp = async (req, res, next) => {
         });
 
     } catch (err) {
-        res.status(400).json({
-            success: false
-        });
+        // res.status(400).json({
+        //     success: false
+        // });
+
+        next(err);
     }
 };
 
